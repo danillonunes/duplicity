@@ -7,7 +7,10 @@ RUN apk add --update \
 
     rm -rf /var/cache/apk/*
 
-VOLUME "/backup"
-WORKDIR "/backup"
+WORKDIR "/root"
 
-CMD ["/bin/sh", "-c"]
+COPY ["entrypoint.sh", "."]
+
+ENTRYPOINT ["./entrypoint.sh"]
+
+CMD ["/bin/sh"]
